@@ -58,11 +58,9 @@ python run_pipeline.py --dataset msmarco_passage --retriever dense --mode ablati
 
 ## Datasets
 
-MS MARCO Passage, MS MARCO Document, Natural Questions, TREC Robust04.
-See `data/README.md` for download instructions.
-
----
-
-## Note
-
-This repository contains the implementation code accompanying a paper currently under review. Full details will be updated upon acceptance.
+| Dataset | Download Link |
+|---|---|
+| MS MARCO Passage | [https://microsoft.github.io/msmarco/](https://microsoft.github.io/msmarco/) |
+| MS MARCO Document | [https://microsoft.github.io/msmarco/](https://microsoft.github.io/msmarco/) |
+| Natural Questions | [https://huggingface.co/datasets/google-research-datasets/nq_open](https://huggingface.co/datasets/google-research-datasets/nq_open) |
+| TREC Robust04 | [https://ir.nist.gov/data/cd45-nocr.html](https://ir.nist.gov/data/cd45-nocr.html) |
