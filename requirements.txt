@@ -1,0 +1,39 @@
+# ── Core ML & Scientific ──────────────────────────────────────────────────────
+numpy>=1.24.0
+scipy>=1.10.0
+scikit-learn>=1.3.0
+pandas>=2.0.0
+
+# ── Gradient Boosting Models ──────────────────────────────────────────────────
+xgboost>=1.7.0
+lightgbm>=4.0.0
+
+# ── Deep Learning & Transformers ─────────────────────────────────────────────
+torch>=2.0.0
+transformers>=4.38.0
+sentence-transformers>=2.6.0
+accelerate>=0.26.0
+
+# ── Retrieval ─────────────────────────────────────────────────────────────────
+pyserini>=0.22.0           # BM25 via Pyserini
+faiss-cpu>=1.7.4           # FAISS for dense retrieval (use faiss-gpu if GPU available)
+# colbert-ai>=0.2.19       # Uncomment for ColBERT late-interaction retrieval
+
+# ── Evaluation Metrics ────────────────────────────────────────────────────────
+rouge-score>=0.1.2
+bert-score>=0.3.13
+nltk>=3.8.1
+
+# ── Data & IO ─────────────────────────────────────────────────────────────────
+datasets>=2.16.0            # HuggingFace Datasets (for NQ, MS MARCO)
+ir-datasets>=0.5.5          # IR Datasets (for Robust04)
+tqdm>=4.66.0
+pyyaml>=6.0
+
+# ── Notebook & Visualization ──────────────────────────────────────────────────
+jupyter>=1.0.0
+matplotlib>=3.7.0
+seaborn>=0.13.0
+
+# ── Utilities ─────────────────────────────────────────────────────────────────
+python-dotenv>=1.0.0

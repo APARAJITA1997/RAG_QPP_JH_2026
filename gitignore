@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg
+venv/
+.env
+
+# Data (large files — download separately)
+data/msmarco_passage/*.tsv
+data/msmarco_document/*.tsv
+data/*.jsonl
+data/*.json
+!data/README.md
+
+# Indexes (rebuild locally)
+indexes/
+
+# Model checkpoints
+outputs/checkpoints/*.pkl
+outputs/checkpoints/*.pt
+
+# Predictions & figures (reproducible from code)
+outputs/predictions/
+outputs/figures/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
