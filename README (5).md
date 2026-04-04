@@ -1,14 +1,9 @@
 # RAG-QPP
 
-Code for the paper **"Adaptive Query Performance Prediction for Retrieval-Augmented Generation: Bridging Retrieval Quality and Generation Relevance"**
-
-> Aparajita Sinha & Kunal Chakma — National Institute of Technology Agartala, India
-
----
 
 ## What This Does
 
-RAG-QPP predicts query difficulty in RAG pipelines using a 12-dimensional post-retrieval feature set — without needing relevance judgments or generator-internal signals. The predicted score is used to adaptively adjust retrieval depth for better answer quality.
+RAG-QPP predicts query difficulty in RAG pipelines using a 12-dimensional post-retrieval feature set — without needing relevance judgments or generator-internal signals. The predicted score is used to adjust retrieval depth for better answer quality adaptively.
 
 ---
 
