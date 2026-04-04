@@ -1,1 +1,91 @@
-configs/config.yaml
+# configs/config.yaml
+# Central configuration for RAG-QPP experiments
+
+# ── Reproducibility ───────────────────────────────────────────────────────────
+random_seed: 42
+
+# ── Retrieval ─────────────────────────────────────────────────────────────────
+retrieval:
+  top_k: 20                        # initial retrieval depth k
+  bm25:
+    k1: 0.9
+    b:  0.4
+  dense:
+    model: "sentence-transformers/msmarco-distilbert-base-v4"
+    batch_size: 16
+    embedding_dim: 768
+  hybrid:
+    alpha: 0.5                     # weight for BM25; (1-alpha) for dense
+    candidate_k: 100               # candidates fetched before fusion
+  colbert:
+    checkpoint: "colbert-ir/colbertv2.0"
+    n_bits: 2
+    max_query_length: 32
+
+# ── Features ──────────────────────────────────────────────────────────────────
+features:
+  high_sim_threshold: 0.8          # threshold for high_sim_count
+  nqc_clip: 10.0                   # NQC upper bound
+  epsilon: 1.0e-5                  # smoothing constant
+  top_k_classic_qpp: 5             # Clarity / WIG window
+
+# ── QPP Models ────────────────────────────────────────────────────────────────
+models:
+  cross_validation:
+    n_splits: 5
+    shuffle: true
+  random_forest:
+    n_estimators: 200
+    max_features: "sqrt"
+    min_samples_split: 5
+  xgboost:
+    n_estimators: 200
+    max_depth: 6
+    learning_rate: 0.05
+    subsample: 0.8
+  lightgbm:
+    n_estimators: 300
+    num_leaves: 31
+    learning_rate: 0.05
+    subsample: 0.8
+
+# ── Generation ────────────────────────────────────────────────────────────────
+generation:
+  bart:
+    model: "facebook/bart-large"
+    max_input_tokens: 512
+    max_new_tokens: 50
+    num_beams: 5
+  llama:
+    model: "meta-llama/Llama-3-8B"
+    max_input_tokens: 512
+    max_new_tokens: 80
+    top_p: 0.9
+  context_passages: 5              # top-k passages passed to generator
+
+# ── Adaptive RAG ──────────────────────────────────────────────────────────────
+adaptive_rag:
+  k_low:    50                     # retrieval depth for low-QPP queries
+  k_medium: 30
+  k_high:   20
+  tau1_percentile: 33
+  tau2_percentile: 66
+
+# ── Datasets ──────────────────────────────────────────────────────────────────
+datasets:
+  msmarco_passage:
+    corpus_size: 8841823
+    dev_queries: 6980
+  msmarco_document:
+    corpus_size: 3200000
+  nq:
+    val_queries: 100
+  robust04:
+    topics: 249
+    corpus_size: 528000
+
+# ── Output ────────────────────────────────────────────────────────────────────
+output:
+  predictions_dir: "outputs/predictions/"
+  figures_dir:     "outputs/figures/"
+  checkpoints_dir: "outputs/checkpoints/"
