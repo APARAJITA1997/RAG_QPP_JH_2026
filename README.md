@@ -1,2 +1,0 @@
-# rag-qpp
-RAG QPP FRAMEWORK
